@@ -1,7 +1,7 @@
 class MediaPlayer {
-  constructor({ video, plugins }) {
-    this.media = video
-    this.plugins = plugins || []
+  constructor(config) {
+    this.media = config.video
+    this.plugins = config.plugins || []
     this._initPlugins()
   }
   _initPlugins() {
@@ -9,10 +9,10 @@ class MediaPlayer {
       plugin.run()
     })
   }
-  toogleMuteUnmute() {
+  toggleMuteUnmute() {
     this.media.muted = !this.media.muted
   }
-  tooglePlayPause() {
+  togglePlayPause() {
     this.media.paused
       ? this.media.play()
       : this.media.pause()
